@@ -1,9 +1,10 @@
 // src/api/weatherApi.js
 import axios from 'axios';
 
-const API_KEY = 'YOUR_API_KEY'; // Replace with your actual API key
+const API_KEY = 'c51b009b95abc89143175769f66b3ded'; // Replace with your actual API key
+// const API_KEY = '4232fe54d1a0e8cc38e8785c3327a94d'; // Replace with your actual API key
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-
+//https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c51b009b95abc89143175769f66b3ded
 export const fetchCurrentWeather = async (city) => {
     try {
         const response = await axios.get(`${BASE_URL}/weather`, {

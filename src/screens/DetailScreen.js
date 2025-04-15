@@ -16,6 +16,8 @@ const DetailSection = ({ title, children }) => (
 );
 
 const DetailScreen = observer(({ navigation }) => {
+
+    console.log("DetailsScreen component rendering")
     const { currentWeather, currentCity } = weatherStore;
 
     if (!currentWeather) {
@@ -39,7 +41,7 @@ const DetailScreen = observer(({ navigation }) => {
                     </Text>
                 </View>
 
-                {/* 10-Day Forecast Section */}
+
                 <DetailSection title="10-DAY FORECAST">
                     <TouchableOpacity
                         className="flex-row items-center justify-between bg-card-bg rounded-xl p-3 mt-2"
