@@ -103,6 +103,7 @@ const MainStack = () => {
             screenOptions={{ headerShown: false }}
         >
             <Stack.Screen name="Tabs" component={TabNavigator} />
+
             {/* Add other non-tab screens here that should be accessible from anywhere */}
         </Stack.Navigator>
     );

@@ -34,28 +34,23 @@ const HomeScreen = observer(({ navigation }) => {
     console.log('Error state:', error);
     if (!currentWeather || !currentWeather.main || loading) {
         return (
-            <SafeAreaView style={{flex: 1, backgroundColor: 'blue'}}>
+            /*<SafeAreaView style={{flex: 1, backgroundColor: 'blue'}}>
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'red'}}>
                     <Text style={{color: 'white', fontSize: 24}}>Test Content</Text>
                 </View>
-            </SafeAreaView>
-           /* <SafeAreaView className="flex-1 bg-app-bg ">
+            </SafeAreaView>*/
+            <SafeAreaView className="flex-1 bg-app-bg ">
                 <View className="flex-1 justify-center items-center">
                     <Text className="text-text-primary text-lg">Loading weather data...</Text>
                 </View>
-            </SafeAreaView>*/
+            </SafeAreaView>
         );
     }
 
     // Handle error state
     if (error) {
         return (
-            /*<SafeAreaView style={{flex: 1, backgroundColor: 'blue'}}>
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'red'}}>
-                    <Text style={{color: 'white', fontSize: 24}}>Test Content</Text>
-                </View>
-            </SafeAreaView>
-*/
+
             <SafeAreaView className="flex-1 bg-app-bg ">
                 <View className="flex-1 justify-center items-center p-4">
                     <Text className="text-red-500 text-lg mb-4">Unable to load weather data</Text>
@@ -86,11 +81,11 @@ const HomeScreen = observer(({ navigation }) => {
                     {/* Header with city name and temperature */}
                     <View className="px-5 pt-8 pb-4">
                         <Text className="text-text-primary text-2xl font-semibold">{currentCity}</Text>
-                        {/*<View className="flex-row items-start mt-2">
+                        <View className="flex-row items-start mt-2">
                             <Text className="text-text-primary text-7xl font-thin">
                                 {Math.round(currentWeather.main.temp)}°
                             </Text>
-                        </View>*/}
+                        </View>
                         <Text className="text-text-primary text-7xl font-thin">
                             {currentWeather?.main?.temp ? Math.round(currentWeather.main.temp) : '--'}°
                         </Text>
