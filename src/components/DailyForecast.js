@@ -4,9 +4,17 @@ import { View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { observer } from 'mobx-react-lite';
 import weatherStore from '../stores/weatherStore';
+import WeatherStore from "../stores/weatherStore";
+import {fetch5DayForecast} from "@/src/api/weatherApi";
 
 const DailyForecast = observer(() => {
     // Hard-coded data to match the design
+
+
+    const response = fetch5DayForecast("London")
+
+    console.log(response);
+
     const dailyData = [
         { day: 'Today', icon: 'sunny', high: 29, low: 15, rainChance: 0 },
         { day: 'Mon', icon: 'cloud', high: 27, low: 16, rainChance: 30 },

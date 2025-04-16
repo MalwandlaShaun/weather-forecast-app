@@ -49,12 +49,12 @@ const SearchBar = observer(({ onClose }) => {
                     <TouchableOpacity
                         className="flex-row items-center px-4 py-3 bg-card-bg rounded-lg"
                         onPress={() => {
-                            weatherStore.fetchWeatherData('Seongnam-si');
+                            weatherStore.fetchWeatherData('Johannesburg');
                             onClose();
                         }}
                     >
                         <View className="flex-1">
-                            <Text className="text-text-primary font-semibold">Seongnam-si</Text>
+                            <Text className="text-text-primary font-semibold">Johannesburg</Text>
                             <Text className="text-text-secondary text-sm">Current Location</Text>
                         </View>
                         <View className="flex-row items-center">
@@ -69,12 +69,12 @@ const SearchBar = observer(({ onClose }) => {
                     <TouchableOpacity
                         className="flex-row items-center px-4 py-3 bg-card-bg rounded-lg mb-2"
                         onPress={() => {
-                            weatherStore.fetchWeatherData('Seoul');
+                            weatherStore.fetchWeatherData('Pretoria');
                             onClose();
                         }}
                     >
                         <View className="flex-1">
-                            <Text className="text-text-primary font-semibold">Seoul</Text>
+                            <Text className="text-text-primary font-semibold">Pretoria</Text>
                             <Text className="text-text-secondary text-sm">11:13 PM</Text>
                         </View>
                         <View className="flex-row items-center">

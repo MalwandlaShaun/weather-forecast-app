@@ -15,7 +15,7 @@ const HomeScreen = observer(({ navigation }) => {
     useEffect(() => {
         // Load data for the default city when component mounts
         if (!currentWeather && !loading) {
-            weatherStore.fetchWeatherData('london');
+            weatherStore.fetchWeatherData('Johannesburg');
         }
     }, []);
 
@@ -30,6 +30,7 @@ const HomeScreen = observer(({ navigation }) => {
     }*/
 
     console.log('Current weather state:', currentWeather);
+    console.log('Current weather state - weather:', currentWeather.weather);
     console.log('Loading state:', loading);
     console.log('Error state:', error);
     if (!currentWeather || !currentWeather.main || loading) {
@@ -79,30 +80,29 @@ const HomeScreen = observer(({ navigation }) => {
             ) : (
                 <ScrollView className="flex-1">
                     {/* Header with city name and temperature */}
-                    <View className="px-5 pt-8 pb-4">
-                        <Text className="text-text-primary text-2xl font-semibold">{currentCity}</Text>
-                        <View className="flex-row items-start mt-2">
-                            <Text className="text-text-primary text-7xl font-thin">
-                                {Math.round(currentWeather.main.temp)}°
+                    <View className="flex-row items-center justify-center" >
+                        <View className="px-5 pt-8 pb-4 items-center justify-center">
+                            <Text className="text-text-primary text-2xl font-semibold">{currentCity}</Text>
+                            <View className="flex-row items-start mt-2">
+                                <Text className="text-text-primary text-7xl font-thin">
+                                    {Math.round(currentWeather.main.temp)}°
+                                </Text>
+                            </View>
+                            <Text className="text-text-primary text-xl mt-2">
+                                {currentWeather.weather[0].main}
+                            </Text>
+                            <Text className="text-text-secondary text-sm mt-1">
+                                H:{Math.round(currentWeather.main.temp_max)}° L:{Math.round(currentWeather.main.temp_min)}°
+                            </Text>
+
+                            <Text className="text-text-secondary text-xs mt-6">
+                                Cloudy conditions from 1AM-9AM, with showers expected at 8AM.
                             </Text>
                         </View>
-                        <Text className="text-text-primary text-7xl font-thin">
-                            {currentWeather?.main?.temp ? Math.round(currentWeather.main.temp) : '--'}°
-                        </Text>
-                        <Text className="text-text-primary text-xl mt-2">
-                            {currentWeather.weather[0].main}
-                        </Text>
-                        <Text className="text-text-secondary text-sm mt-1">
-                            H:{Math.round(currentWeather.main.temp_max)}° L:{Math.round(currentWeather.main.temp_min)}°
-                        </Text>
-
-                        <Text className="text-text-secondary text-xs mt-6">
-                            Cloudy conditions from 1AM-9AM, with showers expected at 8AM.
-                        </Text>
                     </View>
 
                     {/* Hourly forecast section */}
-                    <View className="px-5 py-3">
+                    <View className="px-5 py-3 items-center justify-center">
                         <Text className="text-text-secondary text-xs mb-1">NOW</Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} className="py-2">
                             {[

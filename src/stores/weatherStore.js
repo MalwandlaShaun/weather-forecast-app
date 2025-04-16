@@ -148,7 +148,7 @@ class WeatherStore {
     async init() {
         try {
             const favorites = await getFavorites();
-            const lastCity = await getLastViewedCity() || 'Seongnam-si';
+            const lastCity = await getLastViewedCity() || 'Johannesburg';
 
             runInAction(() => {
                 this.favorites = favorites;
@@ -170,7 +170,7 @@ class WeatherStore {
 
             const [currentWeather, forecastData] = await Promise.all([
                 fetchCurrentWeather(city),
-                fetch5DayForecast(city)
+                // fetch5DayForecast(city)
             ]);
 
             runInAction(() => {
