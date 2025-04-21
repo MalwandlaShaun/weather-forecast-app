@@ -1,16 +1,16 @@
-// src/api/weatherApi.js
-import axios from 'axios';
 
-const API_KEY = 'c51b009b95abc89143175769f66b3ded'; // Replace with your actual API key
-// const API_KEY = '4232fe54d1a0e8cc38e8785c3327a94d'; // Replace with your actual API key
-const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-//https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c51b009b95abc89143175769f66b3ded
+import axios from 'axios';
+import dotenv from 'dotenv'
+
+
+dotenv.config()
+//https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID={API key}
 export const fetchCurrentWeather = async (city) => {
     try {
-        const response = await axios.get(`${BASE_URL}/weather`, {
+        const response = await axios.get(`${process.env.BASE_URL}/weather`, {
             params: {
                 q: city,
-                appid: API_KEY,
+                appid: process.env.API_KEY,
                 units: 'metric', // or 'imperial' for Fahrenheit
             },
         });
@@ -26,11 +26,11 @@ export const fetch5DayForecast = async (city) => {
     // const city = 'johannesburg'; // Hardcoded city name as requested
 
     try {
-        const response = await axios.get(`${BASE_URL}/forecast/daily`, {
+        const response = await axios.get(`${process.env.BASE_URL}/forecast/daily`, {
             params: {
                 q: city,
                 cnt: 5, // 5-day forecast
-                appid: API_KEY,
+                appid: process.env.API_KEY,
                 units: 'metric', // or 'imperial' for Fahrenheit
             },
         });
