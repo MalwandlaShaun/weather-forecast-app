@@ -142,7 +142,7 @@ class WeatherStore {
 
     constructor() {
         makeAutoObservable(this);
-        this.init();
+        this.init().then();
     }
 
     async init() {
@@ -156,7 +156,7 @@ class WeatherStore {
             });
 
             if (lastCity) {
-                this.fetchWeatherData(lastCity);
+                await this.fetchWeatherData(lastCity);
             }
         } catch (error) {
             console.error('Initialization error:', error);
@@ -180,7 +180,7 @@ class WeatherStore {
                 this.loading = false;
             });
 
-            saveLastViewedCity(city);
+            await saveLastViewedCity(city);
         } catch (error) {
             runInAction(() => {
                 this.error = error.message;

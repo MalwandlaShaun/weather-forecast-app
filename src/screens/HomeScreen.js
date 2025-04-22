@@ -15,7 +15,7 @@ const HomeScreen = observer(({ navigation }) => {
     useEffect(() => {
         // Load data for the default city when component mounts
         if (!currentWeather && !loading) {
-            weatherStore.fetchWeatherData('Johannesburg');
+            weatherStore.fetchWeatherData('Johannesburg').then();
         }
     }, []);
 
